@@ -1,0 +1,573 @@
+#!/usr/bin/env batchflow
+<?xml version="1.0"?>
+<Document>
+  <Network type="subnet" name="MAIN">
+    <Node name="node_Constant_1" type="Constant" x="430" y="200">
+      <Parameter name="VALUE" type="subnet_param" value="string:ARG49" description="The value"/>
+    </Node>
+    <Node name="node_InputStream_1" type="InputStream" x="830" y="190">
+      <Parameter name="TYPE" type="string" value="" description="Type of stream: stream, fd, or FILE (default stream)"/>
+      <Parameter name="RETRY" type="int" value="" description="If set to N, InputStream will retry N times on open fail"/>
+    </Node>
+    <Node name="node_LOOP0_1" type="LOOP0" x="1140" y="190">
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="float:ARG1" description="subnet_param"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="float:ARG2" description="subnet_param"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="float:ARG3" description="subnet_param"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="float:ARG4" description="subnet_param"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="float:ARG5" description="subnet_param"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="float:ARG6" description="subnet_param"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="float:ARG7" description="subnet_param"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="float:ARG8" description="subnet_param"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="float:ARG9" description="subnet_param"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="float:ARG10" description="subnet_param"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="float:ARG11" description="subnet_param"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="int:ARG12" description="subnet_param"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="float:ARG13" description="subnet_param"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="float:ARG14" description="subnet_param"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="float:ARG15" description="subnet_param"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="float:ARG16" description="subnet_param"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="float:ARG17" description="subnet_param"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="float:ARG18" description="subnet_param"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="float:ARG19" description="subnet_param"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="float:ARG20" description="subnet_param"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="float:ARG21" description="subnet_param"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="float:ARG22" description="subnet_param"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="float:ARG23" description="subnet_param"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="float:ARG24" description="subnet_param"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="int:ARG25" description="subnet_param"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="int:ARG26" description="subnet_param"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="int:ARG27" description="subnet_param"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="int:ARG28" description="subnet_param"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="float:ARG29" description="subnet_param"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="float:ARG30" description="subnet_param"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="float:ARG31" description="subnet_param"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="float:ARG32" description="subnet_param"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="float:ARG33" description="subnet_param"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="float:ARG34" description="subnet_param"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="float:ARG35" description="subnet_param"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="float:ARG36" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_1" type="subnet_param" value="string:ARG37" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_2" type="subnet_param" value="string:ARG38" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_3" type="subnet_param" value="string:ARG39" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_4" type="subnet_param" value="string:ARG40" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_5" type="subnet_param" value="string:ARG41" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_6" type="subnet_param" value="string:ARG42" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_7" type="subnet_param" value="string:ARG43" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_8" type="subnet_param" value="string:ARG44" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_9" type="subnet_param" value="string:ARG45" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_10" type="subnet_param" value="string:ARG46" description="subnet_param"/>
+      <Parameter name="RES_FILE_PREFIX_11" type="subnet_param" value="string:ARG47" description="subnet_param"/>
+      <Parameter name="TF_CONJ_FILENAME" type="subnet_param" value="string:ARG48" description="subnet_param"/>
+    </Node>
+    <Link from="node_Constant_1" output="VALUE" to="node_InputStream_1" input="INPUT"/>
+    <Link from="node_InputStream_1" output="OUTPUT" to="node_LOOP0_1" input="INPUT"/>
+    <NetOutput name="POSTF-HRLE_ONLY_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="POSTF-HRLE_ONLY_BGNEstimator_AFTER_MultiFFT" object_type="any" description="Dynamic"/>
+    <NetOutput name="HRLE_N_EST_L-POSTF_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="HRLE_N_EST_L-POSTF_BGNEstimator_AFTER_MultiFFT" object_type="any" description="Dynamic"/>
+    <NetOutput name="HRLE_ONLY-POSTF_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="HRLE_ONLY-POSTF_BGNEstimator_AFTER_MultiFFT" object_type="any" description="Dynamic"/>
+    <NetOutput name="POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" object_type="any" description="Dynamic"/>
+    <NetOutput name="HRLE_N_EST_L-POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="HRLE_N_EST_L-POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" object_type="any" description="Dynamic"/>
+    <NetOutput name="HRLE_ONLY-POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="HRLE_ONLY-POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" object_type="any" description="Dynamic"/>
+    <NetOutput name="HRLE_N_EST_L" node="node_LOOP0_1" terminal="HRLE_N_EST_L" object_type="any" description="Dynamic"/>
+    <NetOutput name="HRLE_ONLY" node="node_LOOP0_1" terminal="HRLE_ONLY" object_type="any" description="Dynamic"/>
+    <NetOutput name="POSTF-HRLE_N_EST_L_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="POSTF-HRLE_N_EST_L_BGNEstimator_AFTER_MultiFFT" object_type="any" description="Dynamic"/>
+    <NetOutput name="POSTF_BGNEstimator_AFTER_MultiFFT" node="node_LOOP0_1" terminal="POSTF_BGNEstimator_AFTER_MultiFFT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+  </Network>
+  <Network type="iterator" name="LOOP0">
+    <Node name="node_AudioStreamFromWave_1" type="AudioStreamFromWave" x="430" y="270">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="USE_WAIT" type="bool" value="false" description="If true, real recording is simulated [default: false]."/>
+    </Node>
+    <Node name="node_MultiFFT_1" type="MultiFFT" x="440" y="330">
+      <Parameter name="LENGTH" type="int" value="512" description="FFT length in sample. [default: 512]"/>
+      <Parameter name="WINDOW" type="string" value="CONJ" description="A window function for FFT. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: CONJ]"/>
+      <Parameter name="WINDOW_LENGTH" type="int" value="512" description="Window length of the window function. [default: 512]"/>
+    </Node>
+    <Node name="node_GHDSS_1" type="GHDSS" x="730" y="260">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="LOWER_BOUND_FREQUENCY" type="int" value="0" description="Lower bound of frequency (Hz). [default: 0]"/>
+      <Parameter name="UPPER_BOUND_FREQUENCY" type="int" value="8000" description="Upper bound of frequency (Hz). [default: 8000]"/>
+      <Parameter name="TF_CONJ_FILENAME" type="subnet_param" value="TF_CONJ_FILENAME" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. [default: ADAPTIVE]"/>
+      <Parameter name="SS_SCAL" type="float" value="1" description="Scaling factor for SS step size. [default: 1.0]"/>
+      <Parameter name="SS_MYU" type="float" value="0.001" description="SS step size value. [default 0.001]"/>
+      <Parameter name="NOISE_FLOOR" type="float" value="0" description="Noise floor value. [default 0.0]"/>
+      <Parameter name="LC_CONST" type="string" value="FULL" description="The calculation method for geometric constraints. &quot;FULL&quot; uses all elements of a matrix, and &quot;DIAG&quot; only uses diagonal parts. [default: FULL]"/>
+      <Parameter name="LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. [default: ADAPTIVE]"/>
+      <Parameter name="LC_MYU" type="float" value="0.001" description="LC step size value. [default 0.001]"/>
+      <Parameter name="UPDATE_METHOD_TF_CONJ" type="string" value="POS" description="Switching method of TF_CONJ data. [default: POS]"/>
+      <Parameter name="UPDATE_METHOD_W" type="string" value="ID" description="Switching method of separation matrix, W. [default: ID]"/>
+      <Parameter name="COMPARE_MODE" type="string" value="DEG" description="The comparison algorithm of Sources. DEG uses inner product, and TFINDEX uses index search (faster)."/>
+      <Parameter name="UPDATE_SEARCH_AZIMUTH" type="float" value="" description="Angle of azimuth allowance to serch TF or separation matrix in degree. [default: ]"/>
+      <Parameter name="UPDATE_SEARCH_ELEVATION" type="float" value="" description="Angle of elevation allowance to serch TF or separation matrix in degree. [default: ]"/>
+      <Parameter name="UPDATE_ACCEPT_ANGLE" type="float" value="5" description="Angle allowance to switch separation matrix in degree. available when when UPDATE_METHOD_W is POS or ID_POS. [default: 5.0]"/>
+      <Parameter name="UPDATE_ACCEPT_TFINDEX_DISTANCE" type="int" value="1" description="Distance allowance to switch separation matrix in TFIndex. available when when UPDATE_METHOD_W is POS or ID_POS. [default: 1]"/>
+      <Parameter name="CHECK_SOURCE_DISTANCE" type="bool" value="false" description="Check flag for confirm source distace when using TFIndex. [default: false]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="UPDATE" type="string" value="STEP" description="The update method of separation matrix. &quot;STEP&quot; updates W sequentially, i.e., based on SS and then on LC cost. &quot;TOTAL&quot; updates W based on an integrated value of SS and LC cost [default: STEP]"/>
+    </Node>
+    <Node name="node_Synthesize_1" type="Synthesize" x="1070" y="320">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_1" type="SaveWavePCM" x="1210" y="320">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_9" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_PostFilter_1" type="PostFilter" x="1380" y="390">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_PowerCalcForMatrix_1" type="PowerCalcForMatrix" x="480" y="390">
+      <Parameter name="POWER_TYPE" type="string" value="POW" description="Measure for computing the POW or MAG (i.e. power or magnitude) of the complex spectrum [default: POW]"/>
+    </Node>
+    <Node name="node_BGNEstimator_1" type="BGNEstimator" x="440" y="470">
+      <Parameter name="DELTA" type="float" value="3" description="Power ratio used to decide a threshold to distinguish target signal and background noise. When this value is large, frequency bins with higher power are regarded as background noise, vice versa [default:3.0]"/>
+      <Parameter name="L" type="int" value="150" description="Time window length (in frame) to decide the lowest noise power spectrum, Smin [default:150]"/>
+      <Parameter name="ALPHA_S" type="float" value="0.7" description="A coefficient for temporal smoothing of input spectrum [default:0.7]"/>
+      <Parameter name="NOISE_COMPENS" type="float" value="1" description="Weight factor for background noise frames on smoothing [default: 1.0]"/>
+      <Parameter name="ALPHA_D_MIN" type="float" value="0.05" description="Minimum weight factor for signal (speech) frames [default:0.05]"/>
+      <Parameter name="NUM_INIT_FRAME" type="int" value="100" description="Duration in frame to initialize background noise power spectrum. All frames within this duration at the begining of processing are regarded as noise. [default:100]"/>
+    </Node>
+    <Node name="node_Synthesize_2" type="Synthesize" x="1380" y="480">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_2" type="SaveWavePCM" x="1420" y="480">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_1" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_PostFilter_2" type="PostFilter" x="1380" y="580">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_3" type="Synthesize" x="1380" y="660">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_3" type="SaveWavePCM" x="1420" y="680">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_5" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_1" type="HRLE_N_EST_L" x="1100" y="210">
+    </Node>
+    <Node name="node_HRLY_ONLY_1" type="HRLY_ONLY" x="1010" y="390">
+    </Node>
+    <Node name="node_PostFilter_3" type="PostFilter" x="1400" y="750">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_4" type="Synthesize" x="1350" y="820">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_4" type="SaveWavePCM" x="1420" y="840">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_7" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_Synthesize_5" type="Synthesize" x="1070" y="520">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_5" type="SaveWavePCM" x="1220" y="520">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_10" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_SUB_N_GAIN_1" type="SUB_N_GAIN" x="1420" y="570">
+    </Node>
+    <Node name="node_SUB_N_GAIN_2" type="SUB_N_GAIN" x="1420" y="720">
+    </Node>
+    <Node name="node_SUB_N_GAIN_3" type="SUB_N_GAIN" x="1420" y="880">
+    </Node>
+    <Node name="node_Synthesize_6" type="Synthesize" x="1420" y="280">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_6" type="SaveWavePCM" x="1420" y="290">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_2" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_Synthesize_7" type="Synthesize" x="1420" y="490">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_7" type="SaveWavePCM" x="1420" y="470">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_3" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_Synthesize_8" type="Synthesize" x="1420" y="670">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_8" type="SaveWavePCM" x="1420" y="660">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_4" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_Synthesize_9" type="Synthesize" x="1420" y="810">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_9" type="SaveWavePCM" x="1420" y="820">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_6" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_Synthesize_10" type="Synthesize" x="1420" y="980">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_10" type="SaveWavePCM" x="1420" y="970">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_8" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_ConstantLocalization_1" type="ConstantLocalization" x="710" y="660">
+      <Parameter name="ANGLES" type="object" value="&lt;Vector&lt;float&gt; 0&gt;" description="A vector to specify source locations. Each vector element shows azimuth of a source in degree."/>
+      <Parameter name="ELEVATIONS" type="object" value="&lt;Vector&lt;float&gt; 0&gt;" description="Elevations of source locations. Each element represents an elevation of each source location."/>
+      <Parameter name="POWER" type="object" value="&lt;Vector&lt;float&gt; 1&gt;" description="Power of sources. Each element represents a power of each source."/>
+      <Parameter name="MIN_ID" type="int" value="0" description="Minimum ID of source locations. ID is given from MIN_ID and incremented for the latter sources."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_2" type="HRLE_N_EST_L" x="1420" y="190">
+    </Node>
+    <Node name="node_HRLY_ONLY_2" type="HRLY_ONLY" x="1420" y="370">
+    </Node>
+    <Node name="node_Synthesize_11" type="Synthesize" x="730" y="380">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_11" type="SaveWavePCM" x="730" y="460">
+      <Parameter name="BASENAME" type="subnet_param" value="RES_FILE_PREFIX_11" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Link from="node_AudioStreamFromWave_1" output="AUDIO" to="node_MultiFFT_1" input="INPUT"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_GHDSS_1" input="INPUT_FRAMES"/>
+    <Link from="node_Synthesize_1" output="OUTPUT" to="node_SaveWavePCM_1" input="INPUT"/>
+    <Link from="node_GHDSS_1" output="OUTPUT" to="node_PostFilter_1" input="INPUT_SPEC"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_PowerCalcForMatrix_1" input="INPUT"/>
+    <Link from="node_PowerCalcForMatrix_1" output="OUTPUT" to="node_BGNEstimator_1" input="INPUT_POWER"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_1" input="INIT_NOISE_POWER"/>
+    <Link from="node_Synthesize_2" output="OUTPUT" to="node_SaveWavePCM_2" input="INPUT"/>
+    <Link from="node_PostFilter_1" output="OUTPUT_SPEC" to="node_Synthesize_2" input="INPUT"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_3" input="INPUT"/>
+    <Link from="node_Synthesize_3" output="OUTPUT" to="node_SaveWavePCM_3" input="INPUT"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_2" input="INIT_NOISE_POWER"/>
+    <Link from="node_GHDSS_1" output="OUTPUT" to="node_HRLE_N_EST_L_1" input="INPUT"/>
+    <Link from="node_GHDSS_1" output="OUTPUT" to="node_HRLE_N_EST_L_1" input="INPUT_SPEC"/>
+    <Link from="node_GHDSS_1" output="OUTPUT" to="node_HRLY_ONLY_1" input="INPUT"/>
+    <Link from="node_GHDSS_1" output="OUTPUT" to="node_HRLY_ONLY_1" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_1" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_Synthesize_4" output="OUTPUT" to="node_SaveWavePCM_4" input="INPUT"/>
+    <Link from="node_PostFilter_3" output="OUTPUT_SPEC" to="node_Synthesize_4" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_1" output="OUTPUT_SPEC" to="node_Synthesize_1" input="INPUT"/>
+    <Link from="node_Synthesize_5" output="OUTPUT" to="node_SaveWavePCM_5" input="INPUT"/>
+    <Link from="node_HRLY_ONLY_1" output="OUTPUT_SPEC" to="node_Synthesize_5" input="INPUT"/>
+    <Link from="node_PostFilter_3" output="EST_NOISE_POWER" to="node_SUB_N_GAIN_3" input="NOISE_SPEC"/>
+    <Link from="node_PostFilter_2" output="EST_NOISE_POWER" to="node_SUB_N_GAIN_2" input="NOISE_SPEC"/>
+    <Link from="node_PostFilter_1" output="EST_NOISE_POWER" to="node_SUB_N_GAIN_1" input="NOISE_SPEC"/>
+    <Link from="node_Synthesize_6" output="OUTPUT" to="node_SaveWavePCM_6" input="INPUT"/>
+    <Link from="node_Synthesize_7" output="OUTPUT" to="node_SaveWavePCM_7" input="INPUT"/>
+    <Link from="node_Synthesize_8" output="OUTPUT" to="node_SaveWavePCM_8" input="INPUT"/>
+    <Link from="node_SUB_N_GAIN_1" output="OUTPUT_SPEC" to="node_Synthesize_8" input="INPUT"/>
+    <Link from="node_Synthesize_9" output="OUTPUT" to="node_SaveWavePCM_9" input="INPUT"/>
+    <Link from="node_SUB_N_GAIN_2" output="OUTPUT_SPEC" to="node_Synthesize_9" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_SUB_N_GAIN_3" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_HRLY_ONLY_1" output="POWER" to="node_SUB_N_GAIN_1" input="INPUT_POWER_SPEC"/>
+    <Link from="node_GHDSS_1" output="OUTPUT" to="node_SUB_N_GAIN_1" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_1" output="OUTPUT_POWER_SPEC" to="node_SUB_N_GAIN_2" input="INPUT_POWER_SPEC"/>
+    <Link from="node_HRLY_ONLY_1" output="OUTPUT_POWER_SPEC" to="node_SUB_N_GAIN_3" input="INPUT_POWER_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_1" output="OUTPUT_SPEC" to="node_SUB_N_GAIN_2" input="INPUT_SPEC"/>
+    <Link from="node_HRLY_ONLY_1" output="OUTPUT_SPEC" to="node_SUB_N_GAIN_3" input="INPUT_SPEC"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_3" input="INIT_NOISE_POWER"/>
+    <Link from="node_HRLY_ONLY_1" output="OUTPUT_SPEC" to="node_PostFilter_3" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_1" output="OUTPUT_SPEC" to="node_HRLE_N_EST_L_2" input="INPUT"/>
+    <Link from="node_PostFilter_1" output="OUTPUT_SPEC" to="node_HRLE_N_EST_L_2" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_Synthesize_6" input="INPUT"/>
+    <Link from="node_PostFilter_1" output="OUTPUT_SPEC" to="node_HRLY_ONLY_2" input="INPUT"/>
+    <Link from="node_PostFilter_1" output="OUTPUT_SPEC" to="node_HRLY_ONLY_2" input="INPUT_SPEC"/>
+    <Link from="node_HRLY_ONLY_2" output="OUTPUT_SPEC" to="node_Synthesize_7" input="INPUT"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_GHDSS_1" input="INPUT_SOURCES"/>
+    <Link from="node_GHDSS_1" output="OUTPUT" to="node_Synthesize_11" input="INPUT"/>
+    <Link from="node_Synthesize_11" output="OUTPUT" to="node_SaveWavePCM_11" input="INPUT"/>
+    <NetInput name="INPUT" node="node_AudioStreamFromWave_1" terminal="INPUT" object_type="Stream" description="An audio input stream (IStream)."/>
+    <NetOutput name="POSTF_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_2" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="POSTF-HRLE_ONLY_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_7" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="HRLE_N_EST_L-POSTF_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_3" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="HRLE_ONLY-POSTF_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_4" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_8" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="HRLE_N_EST_L-POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_9" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="HRLE_ONLY-POSTF-SUB_N_GAIN_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_10" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="HRLE_N_EST_L" node="node_SaveWavePCM_1" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="HRLE_ONLY" node="node_SaveWavePCM_5" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="POSTF-HRLE_N_EST_L_BGNEstimator_AFTER_MultiFFT" node="node_SaveWavePCM_6" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="GHDSS" node="node_SaveWavePCM_11" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetCondition name="CONDITION" node="node_AudioStreamFromWave_1" terminal="NOT_EOF"/>
+  </Network>
+  <Network type="subnet" name="SUB_N_GAIN">
+    <Node name="node_CalcSpecSubGain_1" type="CalcSpecSubGain" x="430" y="190">
+      <Parameter name="ALPHA" type="float" value="1" description="Overestimation factor."/>
+      <Parameter name="BETA" type="float" value="0" description="Spectral floor."/>
+      <Parameter name="SS_METHOD" type="int" value="2" description="1: Magnitude Spectral Subtraction, 2: Power SS"/>
+    </Node>
+    <Node name="node_SpectralGainFilter_1" type="SpectralGainFilter" x="590" y="370">
+    </Node>
+    <Link from="node_CalcSpecSubGain_1" output="GAIN" to="node_SpectralGainFilter_1" input="GAIN"/>
+    <Link from="node_CalcSpecSubGain_1" output="VOICE_PROB" to="node_SpectralGainFilter_1" input="VOICE_PROB"/>
+    <NetInput name="INPUT_POWER_SPEC" node="node_CalcSpecSubGain_1" terminal="INPUT_POWER_SPEC" object_type="Map&lt;int,ObjectRef&gt;" description="Input power spectrum(Vector&lt;float&gt;) with a key(source ID)."/>
+    <NetInput name="NOISE_SPEC" node="node_CalcSpecSubGain_1" terminal="NOISE_SPEC" object_type="Map&lt;int,ObjectRef&gt;" description="Estimated Noise spectrum(Vector&lt;float&gt;) with a key(source ID)."/>
+    <NetInput name="INPUT_SPEC" node="node_SpectralGainFilter_1" terminal="INPUT_SPEC" object_type="Map&lt;int,ObjectRef&gt;" description="Separated spectrum(Vector&lt;complex&lt;float&gt; &gt;) with a key(source ID)."/>
+    <NetOutput name="OUTPUT_POWER_SPEC" node="node_CalcSpecSubGain_1" terminal="OUTPUT_POWER_SPEC" object_type="Map&lt;int,ObjectRef&gt;" description="Power spectrum by subtracting NOISE_SPEC from INPUT_POWER_SPEC(Vector&lt;float&gt;) with a key(source ID)."/>
+    <NetOutput name="OUTPUT_SPEC" node="node_SpectralGainFilter_1" terminal="OUTPUT_SPEC" object_type="Map&lt;int,ObjectRef&gt;" description="Estimated voice spectrum(Vector&lt;complex&lt;float&gt; &gt;) with a key(source ID)."/>
+  </Network>
+  <Network type="subnet" name="HRLE_N_EST_L">
+    <Node name="node_PowerCalcForMap_1" type="PowerCalcForMap" x="430" y="260">
+      <Parameter name="POWER_TYPE" type="string" value="POW" description="Measure for computing the POW or MAG (i.e. power or magnitude) of the complex spectrum [default: POW]"/>
+    </Node>
+    <Node name="node_HRLE_1" type="HRLE" x="610" y="190">
+      <Parameter name="LX" type="float" value="0.85" description="Lx value of estimation, e.g. Lx=0 -&gt; Minimum (MCRA), Lx=0.5 -&gt; Median , Lx=1.0 -&gt; Maximum [default:0.85]"/>
+      <Parameter name="TIME_CONSTANT" type="float" value="16000" description="Time constant for exponential decay window in samples [default:16000]"/>
+      <Parameter name="NUM_BIN" type="float" value="1000" description="Number of histogram bins [default:1000]"/>
+      <Parameter name="MIN_LEVEL" type="float" value="-100" description="Minimum level of histogram bin in dB [default:-100]"/>
+      <Parameter name="STEP_LEVEL" type="float" value="0.2" description="Step level of histogram bin (Width of each histogram bin) in dB [default:0.2]"/>
+      <Parameter name="DEBUG" type="bool" value="false" description="Prints the histogram for each 100 iterations."/>
+    </Node>
+    <Node name="node_EstimateLeak_1" type="EstimateLeak" x="650" y="350">
+      <Parameter name="LEAK_FACTOR" type="float" value="0.25" description="Leak factor [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="float" value="1" description="Over cancel value [default:1]"/>
+    </Node>
+    <Node name="node_CalcSpecAddPower_1" type="CalcSpecAddPower" x="1040" y="190">
+    </Node>
+    <Node name="node_SUB_N_GAIN_4" type="SUB_N_GAIN" x="1140" y="300">
+    </Node>
+    <Link from="node_PowerCalcForMap_1" output="OUTPUT" to="node_SUB_N_GAIN_4" input="INPUT_POWER_SPEC"/>
+    <Link from="node_PowerCalcForMap_1" output="OUTPUT" to="node_HRLE_1" input="INPUT_SPEC"/>
+    <Link from="node_PowerCalcForMap_1" output="OUTPUT" to="node_EstimateLeak_1" input="INPUT_POWER_SPEC"/>
+    <Link from="node_HRLE_1" output="NOISE_SPEC" to="node_CalcSpecAddPower_1" input="INPUT_POWER_SPEC1"/>
+    <Link from="node_EstimateLeak_1" output="LEAK_POWER_SPEC" to="node_CalcSpecAddPower_1" input="INPUT_POWER_SPEC2"/>
+    <Link from="node_CalcSpecAddPower_1" output="OUTPUT_POWER_SPEC" to="node_SUB_N_GAIN_4" input="NOISE_SPEC"/>
+    <NetInput name="INPUT" node="node_PowerCalcForMap_1" terminal="INPUT" object_type="Map&lt;int,ObjectRef&gt;" description="Complex spectrum. Key: source ID, Value: Data for each source."/>
+    <NetInput name="INPUT_SPEC" node="node_SUB_N_GAIN_4" terminal="INPUT_SPEC" object_type="any" description="Dynamic"/>
+    <NetOutput name="POWER" node="node_PowerCalcForMap_1" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="Power spectrum. Key: source ID, Value: Data for each source."/>
+    <NetOutput name="OUTPUT_POWER_SPEC" node="node_SUB_N_GAIN_4" terminal="OUTPUT_POWER_SPEC" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_SPEC" node="node_SUB_N_GAIN_4" terminal="OUTPUT_SPEC" object_type="any" description="Dynamic"/>
+  </Network>
+  <Network type="subnet" name="HRLY_ONLY">
+    <Node name="node_PowerCalcForMap_2" type="PowerCalcForMap" x="430" y="250">
+      <Parameter name="POWER_TYPE" type="string" value="POW" description="Measure for computing the POW or MAG (i.e. power or magnitude) of the complex spectrum [default: POW]"/>
+    </Node>
+    <Node name="node_HRLE_2" type="HRLE" x="680" y="190">
+      <Parameter name="LX" type="float" value="0.85" description="Lx value of estimation, e.g. Lx=0 -&gt; Minimum (MCRA), Lx=0.5 -&gt; Median , Lx=1.0 -&gt; Maximum [default:0.85]"/>
+      <Parameter name="TIME_CONSTANT" type="float" value="16000" description="Time constant for exponential decay window in samples [default:16000]"/>
+      <Parameter name="NUM_BIN" type="float" value="1000" description="Number of histogram bins [default:1000]"/>
+      <Parameter name="MIN_LEVEL" type="float" value="-100" description="Minimum level of histogram bin in dB [default:-100]"/>
+      <Parameter name="STEP_LEVEL" type="float" value="0.2" description="Step level of histogram bin (Width of each histogram bin) in dB [default:0.2]"/>
+      <Parameter name="DEBUG" type="bool" value="false" description="Prints the histogram for each 100 iterations."/>
+    </Node>
+    <Node name="node_SUB_N_GAIN_5" type="SUB_N_GAIN" x="700" y="300">
+    </Node>
+    <Link from="node_PowerCalcForMap_2" output="OUTPUT" to="node_HRLE_2" input="INPUT_SPEC"/>
+    <Link from="node_PowerCalcForMap_2" output="OUTPUT" to="node_SUB_N_GAIN_5" input="INPUT_POWER_SPEC"/>
+    <Link from="node_HRLE_2" output="NOISE_SPEC" to="node_SUB_N_GAIN_5" input="NOISE_SPEC"/>
+    <NetInput name="INPUT" node="node_PowerCalcForMap_2" terminal="INPUT" object_type="Map&lt;int,ObjectRef&gt;" description="Complex spectrum. Key: source ID, Value: Data for each source."/>
+    <NetInput name="INPUT_SPEC" node="node_SUB_N_GAIN_5" terminal="INPUT_SPEC" object_type="any" description="Dynamic"/>
+    <NetOutput name="POWER" node="node_PowerCalcForMap_2" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="Power spectrum. Key: source ID, Value: Data for each source."/>
+    <NetOutput name="OUTPUT_POWER_SPEC" node="node_SUB_N_GAIN_5" terminal="OUTPUT_POWER_SPEC" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_SPEC" node="node_SUB_N_GAIN_5" terminal="OUTPUT_SPEC" object_type="any" description="Dynamic"/>
+  </Network>
+</Document>
