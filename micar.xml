@@ -1,0 +1,71 @@
+<hark_xml>
+ <hark_config id="MicArrayLocation" major="2" minor="0">
+  <Comment>created by harktool4</Comment>
+  <Mics size="8">
+   <Mic>
+    <MicIndex>0</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>-0</X>
+     <Y>-0.175</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+   <Mic>
+    <MicIndex>1</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>0</X>
+     <Y>-0.125</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+   <Mic>
+    <MicIndex>2</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>0</X>
+     <Y>-0.075</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+   <Mic>
+    <MicIndex>3</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>0</X>
+     <Y>-0.025</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+   <Mic>
+    <MicIndex>4</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>0</X>
+     <Y>0.025</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+   <Mic>
+    <MicIndex>5</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>0</X>
+     <Y>0.075</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+   <Mic>
+    <MicIndex>6</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>0</X>
+     <Y>0.125</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+   <Mic>
+    <MicIndex>7</MicIndex>
+    <Position unit="meter" type="cartesian">
+     <X>0</X>
+     <Y>0.175</Y>
+     <Z>0</Z>
+    </Position>
+   </Mic>
+  </Mics>
+ </hark_config>
+</hark_xml>

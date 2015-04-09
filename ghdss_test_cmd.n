@@ -1,0 +1,86 @@
+#!/usr/bin/env batchflow
+<?xml version="1.0"?>
+<Document>
+  <Network name="MAIN" type="subnet">
+    <Node name="node_Constant_1" type="Constant" x="450" y="200">
+      <Parameter description="The value" name="VALUE" type="subnet_param" value="string:ARG1" />
+    </Node>
+    <Node name="node_InputStream_1" type="InputStream" x="650" y="190">
+      <Parameter description="Type of stream: stream, fd, or FILE (default stream)" name="TYPE" type="string" value="" />
+      <Parameter description="If set to N, InputStream will retry N times on open fail" name="RETRY" type="int" value="" />
+    </Node>
+    <Node name="node_LOOP0_1" type="LOOP0" x="890" y="190">
+    </Node>
+    <Link from="node_InputStream_1" input="INPUT" output="OUTPUT" to="node_LOOP0_1" />
+    <Link from="node_Constant_1" input="INPUT" output="VALUE" to="node_InputStream_1" />
+    <NetOutput description="Dynamic" name="OUTPUT" node="node_LOOP0_1" object_type="any" terminal="OUTPUT" />
+  </Network>
+  <Network name="LOOP0" type="iterator">
+    <Node name="node_AudioStreamFromWave_1" type="AudioStreamFromWave" x="450" y="190">
+      <Parameter description="The frame length of each channel (in samples) [default: 512]." name="LENGTH" type="int" value="512" />
+      <Parameter description="The shift length beween adjacent frames (in samples)[default: 160]." name="ADVANCE" type="int" value="160" />
+      <Parameter description="If true, real recording is simulated [default: false]." name="USE_WAIT" type="bool" value="false" />
+    </Node>
+    <Node name="node_MultiFFT_1" type="MultiFFT" x="780" y="200">
+      <Parameter description="FFT length in sample. [default: 512]" name="LENGTH" type="int" value="512" />
+      <Parameter description="A window function for FFT. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: CONJ]" name="WINDOW" type="string" value="CONJ" />
+      <Parameter description="Window length of the window function. [default: 512]" name="WINDOW_LENGTH" type="int" value="512" />
+    </Node>
+    <Node name="node_Synthesize_1" type="Synthesize" x="780" y="560">
+      <Parameter description="Size of window length in sample. [default: 512]" name="LENGTH" type="int" value="512" />
+      <Parameter description="The length in sample between a frame and a previous frame. [default: 160]" name="ADVANCE" type="int" value="160" />
+      <Parameter description="Sampling rate (Hz) [default: 16000]." name="SAMPLING_RATE" type="int" value="16000" />
+      <Parameter description="Minimum frequency (Hz) [default: 125]" name="MIN_FREQUENCY" type="int" value="125" />
+      <Parameter description="Maximum frequency (Hz) [default: 7900]" name="MAX_FREQUENCY" type="int" value="7900" />
+      <Parameter description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]" name="WINDOW" type="string" value="HAMMING" />
+      <Parameter description="Output gain factor. [default: 1.0]" name="OUTPUT_GAIN" type="float" value="1" />
+    </Node>
+    <Node name="node_SaveWavePCM_1" type="SaveWavePCM" x="1000" y="560">
+      <Parameter description="Basename of files. [default: sep_]" name="BASENAME" type="string" value="/home/alex/projects/HARK-projects/sep_" />
+      <Parameter description="The shift length beween adjacent frames (in samples)[default: 160]." name="ADVANCE" type="int" value="160" />
+      <Parameter description="Sampling rate (in samples)[default: 16000]." name="SAMPLING_RATE" type="int" value="16000" />
+      <Parameter description="Bit format of samples. int16 , int24 and float32 bits are supported." name="BITS" type="string" value="int16" />
+    </Node>
+    <Node name="node_ConstantLocalization_1" type="ConstantLocalization" x="460" y="360">
+      <Parameter description="A vector to specify source locations. Each vector element shows azimuth of a source in degree." name="ANGLES" type="object" value="&lt;Vector&lt;float&gt; 30&gt;;" />
+      <Parameter description="Elevations of source locations. Each element represents an elevation of each source location." name="ELEVATIONS" type="object" value="&lt;Vector&lt;float&gt; 0&gt;" />
+      <Parameter description="Power of sources. Each element represents a power of each source." name="POWER" type="object" value="&lt;Vector&lt;float&gt; 1&gt;" />
+      <Parameter description="Minimum ID of source locations. ID is given from MIN_ID and incremented for the latter sources." name="MIN_ID" type="int" value="0" />
+    </Node>
+    <Node name="node_GHDSS_1" type="GHDSS" x="810" y="350">
+      <Parameter description="The frame length of each channel (in samples) [default: 512]." name="LENGTH" type="int" value="512" />
+      <Parameter description="The shift length beween adjacent frames (in samples)[default: 160]." name="ADVANCE" type="int" value="160" />
+      <Parameter description="Sampling rate (Hz) [default: 16000]." name="SAMPLING_RATE" type="int" value="16000" />
+      <Parameter description="Lower bound of frequency (Hz). [default: 0]" name="LOWER_BOUND_FREQUENCY" type="int" value="0" />
+      <Parameter description="Upper bound of frequency (Hz). [default: 8000]" name="UPPER_BOUND_FREQUENCY" type="int" value="8000" />
+      <Parameter description="Filename of a pre-measured transfer function for separation." name="TF_CONJ_FILENAME" type="string" value="/home/alex/projects/HARK-projects/stf" />
+      <Parameter description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ." name="INITW_FILENAME" type="string" value="" />
+      <Parameter description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. [default: ADAPTIVE]" name="SS_METHOD" type="string" value="ADAPTIVE" />
+      <Parameter description="Scaling factor for SS step size. [default: 1.0]" name="SS_SCAL" type="float" value="1" />
+      <Parameter description="SS step size value. [default 0.001]" name="SS_MYU" type="float" value="0.001" />
+      <Parameter description="Noise floor value. [default 0.0]" name="NOISE_FLOOR" type="float" value="0" />
+      <Parameter description="The calculation method for geometric constraints. &quot;FULL&quot; uses all elements of a matrix, and &quot;DIAG&quot; only uses diagonal parts. [default: FULL]" name="LC_CONST" type="string" value="FULL" />
+      <Parameter description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. [default: ADAPTIVE]" name="LC_METHOD" type="string" value="ADAPTIVE" />
+      <Parameter description="LC step size value. [default 0.001]" name="LC_MYU" type="float" value="0.001" />
+      <Parameter description="Switching method of TF_CONJ data. [default: POS]" name="UPDATE_METHOD_TF_CONJ" type="string" value="POS" />
+      <Parameter description="Switching method of separation matrix, W. [default: ID]" name="UPDATE_METHOD_W" type="string" value="ID_POS" />
+      <Parameter description="The comparison algorithm of Sources. DEG uses inner product, and TFINDEX uses index search (faster)." name="COMPARE_MODE" type="string" value="DEG" />
+      <Parameter description="Angle of azimuth allowance to serch TF or separation matrix in degree. [default: ]" name="UPDATE_SEARCH_AZIMUTH" type="float" value="" />
+      <Parameter description="Angle of elevation allowance to serch TF or separation matrix in degree. [default: ]" name="UPDATE_SEARCH_ELEVATION" type="float" value="" />
+      <Parameter description="Angle allowance to switch separation matrix in degree. available when when UPDATE_METHOD_W is POS or ID_POS. [default: 5.0]" name="UPDATE_ACCEPT_ANGLE" type="float" value="1" />
+      <Parameter description="Distance allowance to switch separation matrix in TFIndex. available when when UPDATE_METHOD_W is POS or ID_POS. [default: 1]" name="UPDATE_ACCEPT_TFINDEX_DISTANCE" type="int" value="1" />
+      <Parameter description="Check flag for confirm source distace when using TFIndex. [default: false]" name="CHECK_SOURCE_DISTANCE" type="bool" value="false" />
+      <Parameter description="Separation matrix W is exported if true. [default: false]" name="EXPORT_W" type="bool" value="false" />
+      <Parameter description="The filename to export W." name="EXPORT_W_FILENAME" type="string" value="" />
+      <Parameter description="The update method of separation matrix. &quot;STEP&quot; updates W sequentially, i.e., based on SS and then on LC cost. &quot;TOTAL&quot; updates W based on an integrated value of SS and LC cost [default: STEP]" name="UPDATE" type="string" value="STEP" />
+    </Node>
+    <Link from="node_AudioStreamFromWave_1" input="INPUT" output="AUDIO" to="node_MultiFFT_1" />
+    <Link from="node_Synthesize_1" input="INPUT" output="OUTPUT" to="node_SaveWavePCM_1" />
+    <Link from="node_ConstantLocalization_1" input="INPUT_SOURCES" output="SOURCES" to="node_GHDSS_1" />
+    <Link from="node_MultiFFT_1" input="INPUT_FRAMES" output="OUTPUT" to="node_GHDSS_1" />
+    <Link from="node_GHDSS_1" input="INPUT" output="OUTPUT" to="node_Synthesize_1" />
+    <NetInput description="An audio input stream (IStream)." name="INPUT" node="node_AudioStreamFromWave_1" object_type="Stream" terminal="INPUT" />
+    <NetOutput description="The same as input." name="OUTPUT" node="node_SaveWavePCM_1" object_type="Map&lt;int,ObjectRef&gt;" terminal="OUTPUT" />
+    <NetCondition name="CONDITION" node="node_AudioStreamFromWave_1" terminal="NOT_EOF" />
+  </Network>
+</Document>

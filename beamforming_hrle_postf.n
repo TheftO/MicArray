@@ -1,0 +1,1054 @@
+#!/usr/bin/env batchflow
+<?xml version="1.0"?>
+<Document>
+  <Network type="subnet" name="MAIN">
+    <Node name="node_Constant_1" type="Constant" x="430" y="190">
+      <Parameter name="VALUE" type="string" value="/home/alex/HARK-projects/res.wav" description="The value"/>
+    </Node>
+    <Node name="node_InputStream_1" type="InputStream" x="630" y="190">
+      <Parameter name="TYPE" type="string" value="" description="Type of stream: stream, fd, or FILE (default stream)"/>
+      <Parameter name="RETRY" type="int" value="" description="If set to N, InputStream will retry N times on open fail"/>
+    </Node>
+    <Node name="node_LOOP0_1" type="LOOP0" x="870" y="180">
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="float" value="1.2" description="subnet_param"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="float" value="0.5" description="subnet_param"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="float" value="1.5" description="subnet_param"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="float" value="0.98" description="subnet_param"/>
+      <Parameter name="LEAK_FACTOR" type="float" value="0.25" description="subnet_param"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="float" value="1" description="subnet_param"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="float" value="0.5" description="subnet_param"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="float" value="0.2" description="subnet_param"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="float" value="0.8" description="subnet_param"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="float" value="0.7" description="subnet_param"/>
+      <Parameter name="LEAK_FLOOR" type="float" value="0.1" description="subnet_param"/>
+      <Parameter name="BLOCK_LENGTH" type="int" value="80" description="subnet_param"/>
+      <Parameter name="VOICEP_THRESHOLD" type="float" value="3" description="subnet_param"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="float" value="0.9" description="subnet_param"/>
+      <Parameter name="MIN_VOICEP_PROB" type="float" value="0.05" description="subnet_param"/>
+      <Parameter name="MAX_PRIOR_SNR" type="float" value="100" description="subnet_param"/>
+      <Parameter name="MAX_OPT_GAIN" type="float" value="20" description="subnet_param"/>
+      <Parameter name="MIN_OPT_GAIN" type="float" value="6" description="subnet_param"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="float" value="0.1" description="subnet_param"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="float" value="0.316" description="subnet_param"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="float" value="0.1" description="subnet_param"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="float" value="0.316" description="subnet_param"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="float" value="0.1" description="subnet_param"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="float" value="0.316" description="subnet_param"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="int" value="99" description="subnet_param"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="int" value="8" description="subnet_param"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="int" value="29" description="subnet_param"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="int" value="5" description="subnet_param"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="float" value="1.5" description="subnet_param"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="float" value="1" description="subnet_param"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="float" value="10" description="subnet_param"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="float" value="0.7" description="subnet_param"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="float" value="0.9" description="subnet_param"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="float" value="0.9" description="subnet_param"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="float" value="0.02" description="subnet_param"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="float" value="0.98" description="subnet_param"/>
+    </Node>
+    <Link from="node_Constant_1" output="VALUE" to="node_InputStream_1" input="INPUT"/>
+    <Link from="node_InputStream_1" output="OUTPUT" to="node_LOOP0_1" input="INPUT"/>
+    <NetOutput name="OUTPUT" node="node_LOOP0_1" terminal="OUTPUT" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_1" node="node_LOOP0_1" terminal="OUTPUT_1" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_2" node="node_LOOP0_1" terminal="OUTPUT_2" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_3" node="node_LOOP0_1" terminal="OUTPUT_3" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_4" node="node_LOOP0_1" terminal="OUTPUT_4" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_5" node="node_LOOP0_1" terminal="OUTPUT_5" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_6" node="node_LOOP0_1" terminal="OUTPUT_6" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_7" node="node_LOOP0_1" terminal="OUTPUT_7" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_8" node="node_LOOP0_1" terminal="OUTPUT_8" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_9" node="node_LOOP0_1" terminal="OUTPUT_9" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_10" node="node_LOOP0_1" terminal="OUTPUT_10" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_11" node="node_LOOP0_1" terminal="OUTPUT_11" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_12" node="node_LOOP0_1" terminal="OUTPUT_12" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_13" node="node_LOOP0_1" terminal="OUTPUT_13" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_14" node="node_LOOP0_1" terminal="OUTPUT_14" object_type="any" description="Dynamic"/>
+    <NetOutput name="OUTPUT_15" node="node_LOOP0_1" terminal="OUTPUT_15" object_type="any" description="Dynamic"/>
+  </Network>
+  <Network type="iterator" name="LOOP0">
+    <Node name="node_AudioStreamFromWave_1" type="AudioStreamFromWave" x="390" y="240">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="USE_WAIT" type="bool" value="false" description="If true, real recording is simulated [default: false]."/>
+    </Node>
+    <Node name="node_MultiFFT_1" type="MultiFFT" x="410" y="350">
+      <Parameter name="LENGTH" type="int" value="512" description="FFT length in sample. [default: 512]"/>
+      <Parameter name="WINDOW" type="string" value="CONJ" description="A window function for FFT. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: CONJ]"/>
+      <Parameter name="WINDOW_LENGTH" type="int" value="512" description="Window length of the window function. [default: 512]"/>
+    </Node>
+    <Node name="node_BeamForming_1" type="BeamForming" x="600" y="350">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="DS" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_ConstantLocalization_1" type="ConstantLocalization" x="340" y="516">
+      <Parameter name="ANGLES" type="object" value="&lt;Vector&lt;float&gt; 0&gt;" description="A vector to specify source locations. Each vector element shows azimuth of a source in degree."/>
+      <Parameter name="ELEVATIONS" type="object" value="&lt;Vector&lt;float&gt; 0&gt;" description="Elevations of source locations. Each element represents an elevation of each source location."/>
+      <Parameter name="POWER" type="object" value="&lt;Vector&lt;float&gt; 1&gt;" description="Power of sources. Each element represents a power of each source."/>
+      <Parameter name="MIN_ID" type="int" value="0" description="Minimum ID of source locations. ID is given from MIN_ID and incremented for the latter sources."/>
+    </Node>
+    <Node name="node_Synthesize_1" type="Synthesize" x="910" y="280">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_1" type="SaveWavePCM" x="880" y="366">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_DS_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_BeamForming_2" type="BeamForming" x="620" y="520">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="WDS" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_SaveWavePCM_2" type="SaveWavePCM" x="890" y="566">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_WDS_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_BeamForming_3" type="BeamForming" x="620" y="719">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="NULL" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_Synthesize_3" type="Synthesize" x="930" y="649">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_3" type="SaveWavePCM" x="930" y="736">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_NULL_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_BeamForming_4" type="BeamForming" x="630" y="898">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="ILSE" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_Synthesize_4" type="Synthesize" x="900" y="830">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_4" type="SaveWavePCM" x="910" y="930">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_ILSE_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_BeamForming_5" type="BeamForming" x="600" y="1145">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="LCMV" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_Synthesize_5" type="Synthesize" x="880" y="1092">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_5" type="SaveWavePCM" x="890" y="1182">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_LCMV_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_BeamForming_6" type="BeamForming" x="620" y="1364">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="GJ" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_Synthesize_6" type="Synthesize" x="890" y="1342">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_6" type="SaveWavePCM" x="900" y="1442">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_GJ_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_BeamForming_7" type="BeamForming" x="610" y="1602">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="MSNR" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_Synthesize_7" type="Synthesize" x="910" y="1542">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_7" type="SaveWavePCM" x="910" y="1632">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_MSNR_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_BeamForming_8" type="BeamForming" x="620" y="1762">
+      <Parameter name="LENGTH" type="int" value="512" description="The frame length of each channel (in samples) [default: 512]."/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="TF_CONJ_FILENAME" type="string" value="/home/alex/HARK-projects/stf" description="Filename of a pre-measured transfer function for separation."/>
+      <Parameter name="INITW_FILENAME" type="string" value="" description="Filename of an initial separation matrix. If specified, a matrix in INITW_FILENAME is used as an initial separation matrix. Otherwise, initial separation matrix is estimated from the geometrical relationship or pre-measured TF according to TF_CONJ."/>
+      <Parameter name="GICA_SS_METHOD" type="string" value="ADAPTIVE" description="The calculation method for SS step size parameter corresponding to the blind separation part. &quot;FIX&quot; uses a fixed step size,&quot;LC_MYU&quot; uses the same value as LC_MYU, and &quot;ADAPTIVE&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_SS_MYU" type="float" value="0.001" description="SS step size value if LC_METHOD=FIX. SS adaptive step size scaler if GICA_SS_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="LCMV_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=LCMV. [default: ADAPTIVE]"/>
+      <Parameter name="GJ_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GJ. [default: ADAPTIVE]"/>
+      <Parameter name="GICA_LC_METHOD" type="string" value="ADAPTIVE" description="The calculation method for LC step size corresponding to geometric constraints. &quot;FIX&quot; uses a fixed value, and &quot;Adaptive&quot; adaptively estimates an optimal step size. This is used only when BF_METHOD=GICA. [default: ADAPTIVE]"/>
+      <Parameter name="LCMV_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GJ_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="GICA_LC_MYU" type="float" value="0.001" description="LC step size value if LC_METHOD=FIX. LC adaptive step size scaler if LC_METHOD=ADAPTIVE. [default 0.001]"/>
+      <Parameter name="EXPORT_W" type="bool" value="false" description="Separation matrix W is exported if true. [default: false]"/>
+      <Parameter name="EXPORT_W_FILENAME" type="string" value="" description="The filename to export W."/>
+      <Parameter name="DECOMPOSITION_ALGORITHM" type="string" value="GEVD" description="GEVD is more rubust but slow. GSVD is fast but less robust."/>
+      <Parameter name="ALPHA" type="float" value="0.99" description="[NEW] ALPHA parameter used in MNSR as step size parameter."/>
+      <Parameter name="GICA_SS_SCAL" type="float" value="1" description="Scaling factor of the nonlinear function for SS step size. [default: 1.0]"/>
+      <Parameter name="REG_FACTOR" type="float" value="0.0001" description="Reg Factor value if BF_METHOD=ML. [default 0.0001]"/>
+      <Parameter name="BF_METHOD" type="string" value="GICA" description="[NEW] beam-forming algorithm type."/>
+      <Parameter name="ENABLE_DEBUG" type="bool" value="false" description="enable debug print"/>
+    </Node>
+    <Node name="node_Synthesize_8" type="Synthesize" x="920" y="1712">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_8" type="SaveWavePCM" x="910" y="1792">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_GICA_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_1" type="HRLE_N_EST_L" x="1110" y="270">
+    </Node>
+    <Node name="node_BGNEstimator_1" type="BGNEstimator" x="710" y="170">
+      <Parameter name="DELTA" type="float" value="3" description="Power ratio used to decide a threshold to distinguish target signal and background noise. When this value is large, frequency bins with higher power are regarded as background noise, vice versa [default:3.0]"/>
+      <Parameter name="L" type="int" value="150" description="Time window length (in frame) to decide the lowest noise power spectrum, Smin [default:150]"/>
+      <Parameter name="ALPHA_S" type="float" value="0.7" description="A coefficient for temporal smoothing of input spectrum [default:0.7]"/>
+      <Parameter name="NOISE_COMPENS" type="float" value="1" description="Weight factor for background noise frames on smoothing [default: 1.0]"/>
+      <Parameter name="ALPHA_D_MIN" type="float" value="0.05" description="Minimum weight factor for signal (speech) frames [default:0.05]"/>
+      <Parameter name="NUM_INIT_FRAME" type="int" value="100" description="Duration in frame to initialize background noise power spectrum. All frames within this duration at the begining of processing are regarded as noise. [default:100]"/>
+    </Node>
+    <Node name="node_PostFilter_1" type="PostFilter" x="1112" y="360">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_2" type="Synthesize" x="894" y="470">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_Synthesize_9" type="Synthesize" x="1390" y="270">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_9" type="SaveWavePCM" x="1420" y="380">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_DS_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_2" type="HRLE_N_EST_L" x="1110" y="440">
+    </Node>
+    <Node name="node_PostFilter_2" type="PostFilter" x="1120" y="540">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_10" type="Synthesize" x="1400" y="450">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_10" type="SaveWavePCM" x="1430" y="560">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_WDS_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_3" type="HRLE_N_EST_L" x="1100" y="630">
+    </Node>
+    <Node name="node_PostFilter_3" type="PostFilter" x="1110" y="731">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_11" type="Synthesize" x="1390" y="641">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_11" type="SaveWavePCM" x="1420" y="751">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_NULL_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_4" type="HRLE_N_EST_L" x="1100" y="840">
+    </Node>
+    <Node name="node_PostFilter_4" type="PostFilter" x="1110" y="943">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_12" type="Synthesize" x="1390" y="853">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_12" type="SaveWavePCM" x="1420" y="963">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_ILSE_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_5" type="HRLE_N_EST_L" x="1100" y="1080">
+    </Node>
+    <Node name="node_PostFilter_5" type="PostFilter" x="1110" y="1208">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_13" type="Synthesize" x="1390" y="1118">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_13" type="SaveWavePCM" x="1420" y="1228">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_LCMV_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_6" type="HRLE_N_EST_L" x="1100" y="1280">
+    </Node>
+    <Node name="node_PostFilter_6" type="PostFilter" x="1110" y="1420">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_14" type="Synthesize" x="1390" y="1330">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_14" type="SaveWavePCM" x="1420" y="1440">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_GJ_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_7" type="HRLE_N_EST_L" x="1100" y="1490">
+    </Node>
+    <Node name="node_PostFilter_7" type="PostFilter" x="1110" y="1632">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_15" type="Synthesize" x="1390" y="1542">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_15" type="SaveWavePCM" x="1420" y="1652">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_MSNR_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_HRLE_N_EST_L_8" type="HRLE_N_EST_L" x="1100" y="1670">
+    </Node>
+    <Node name="node_PostFilter_8" type="PostFilter" x="1110" y="1811">
+      <Parameter name="MCRA_SETTING" type="bool" value="true" description="Set the MCRA parameters [default:false]"/>
+      <Parameter name="EST_LEAK_SETTING" type="bool" value="true" description="Set the EST_LEAK parameters[default:false]"/>
+      <Parameter name="EST_REV_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="EST_SN_SETTING" type="bool" value="true" description="Set the EST_SN parameters[default:false]"/>
+      <Parameter name="EST_VOICEP_SETTING" type="bool" value="true" description="Set the EST_REV parameters[default:false]"/>
+      <Parameter name="STATIONARY_NOISE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_FACTOR" description="Stationary noise estimation factor[default:1.2]"/>
+      <Parameter name="SPEC_SMOOTH_FACTOR" type="subnet_param" value="SPEC_SMOOTH_FACTOR" description="Smoothing factor for input power spectrum [default:0.5]"/>
+      <Parameter name="AMP_LEAK_FACTOR" type="subnet_param" value="AMP_LEAK_FACTOR" description="Leak factor [default:1.5]"/>
+      <Parameter name="STATIONARY_NOISE_MIXTURE_FACTOR" type="subnet_param" value="STATIONARY_NOISE_MIXTURE_FACTOR" description="The mixture rate of stationary noise [default:0.98]"/>
+      <Parameter name="LEAK_FACTOR" type="subnet_param" value="LEAK_FACTOR" description="Leak rate [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="subnet_param" value="OVER_CANCEL_FACTOR" description="The weighting factor for leak rate [default:1]"/>
+      <Parameter name="REVERB_DECAY_FACTOR" type="subnet_param" value="REVERB_DECAY_FACTOR" description="The decay factor for reverblate power [default:0.5]"/>
+      <Parameter name="DIRECT_DECAY_FACTOR" type="subnet_param" value="DIRECT_DECAY_FACTOR" description="The decay factor for separated spectrum [default:0.2]"/>
+      <Parameter name="PRIOR_SNR_FACTOR" type="subnet_param" value="PRIOR_SNR_FACTOR" description="The rate of prior and posterior SNR [default:0.8]"/>
+      <Parameter name="PRIOR_SNR_SMOOTH_FACTOR" type="subnet_param" value="PRIOR_SNR_SMOOTH_FACTOR" description="Smoothing factor [default:0.7]"/>
+      <Parameter name="LEAK_FLOOR" type="subnet_param" value="LEAK_FLOOR" description="The min value of leak noise [default:0.1]"/>
+      <Parameter name="BLOCK_LENGTH" type="subnet_param" value="BLOCK_LENGTH" description="Time interval for detection [default:80]"/>
+      <Parameter name="VOICEP_THRESHOLD" type="subnet_param" value="VOICEP_THRESHOLD" description="Threshold level for check the voice probability [default:3]"/>
+      <Parameter name="VOICEP_PROB_FACTOR" type="subnet_param" value="VOICEP_PROB_FACTOR" description="Amplitude factor for voice probability [default:0.9]"/>
+      <Parameter name="MIN_VOICEP_PROB" type="subnet_param" value="MIN_VOICEP_PROB" description="Min value of voice probability [default:0.05]"/>
+      <Parameter name="MAX_PRIOR_SNR" type="subnet_param" value="MAX_PRIOR_SNR" description="Max value of prior SNR [default:100]"/>
+      <Parameter name="MAX_OPT_GAIN" type="subnet_param" value="MAX_OPT_GAIN" description="Max value of optimum gain mid variable(v) [default:20]"/>
+      <Parameter name="MIN_OPT_GAIN" type="subnet_param" value="MIN_OPT_GAIN" description="Min value of optimum gain mid variable(v) [default:6]"/>
+      <Parameter name="MIN_FRAME_SMOOTH_SNR" type="subnet_param" value="MIN_FRAME_SMOOTH_SNR" description="Min value of frequency smoothing SNR(frame) [default:0.1]"/>
+      <Parameter name="MAX_FRAME_SMOOTH_SNR" type="subnet_param" value="MAX_FRAME_SMOOTH_SNR" description="Max value of frequency smoothing SNR(frame) [default:0.316]"/>
+      <Parameter name="MIN_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MIN_GLOBAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(global) [default:0.1]"/>
+      <Parameter name="MAX_GLOBAL_SMOOTH_SNR" type="subnet_param" value="MAX_GLOBAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(global) [default:0.316]"/>
+      <Parameter name="MIN_LOCAL_SMOOTH_SNR" type="subnet_param" value="MIN_LOCAL_SMOOTH_SNR" description="Min value of frequency smoothing SNR(local) [default:0.1]"/>
+      <Parameter name="MAX_LOCAL_SMOOTH_SNR" type="subnet_param" value="MAX_LOCAL_SMOOTH_SNR" description="Max value of frequency smoothing SNR(local) [default:0.316]"/>
+      <Parameter name="UPPER_SMOOTH_FREQ_INDEX" type="subnet_param" value="UPPER_SMOOTH_FREQ_INDEX" description="Upper bound frequency index used smoothing [default:99]"/>
+      <Parameter name="LOWER_SMOOTH_FREQ_INDEX" type="subnet_param" value="LOWER_SMOOTH_FREQ_INDEX" description="Lower bound frequency index used smoothing [default:8]"/>
+      <Parameter name="GLOBAL_SMOOTH_BANDWIDTH" type="subnet_param" value="GLOBAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(global) [default:29]"/>
+      <Parameter name="LOCAL_SMOOTH_BANDWIDTH" type="subnet_param" value="LOCAL_SMOOTH_BANDWIDTH" description="Frequency smoothing bandwidth(local) [default:5]"/>
+      <Parameter name="FRAME_SMOOTH_SNR_THRESH" type="subnet_param" value="FRAME_SMOOTH_SNR_THRESH" description="Threshold of frequency smoothing SNR(frame) [default:1.5]"/>
+      <Parameter name="MIN_SMOOTH_PEAK_SNR" type="subnet_param" value="MIN_SMOOTH_PEAK_SNR" description="Min peak value of frequency smoothing SNR [default:1]"/>
+      <Parameter name="MAX_SMOOTH_PEAK_SNR" type="subnet_param" value="MAX_SMOOTH_PEAK_SNR" description="Max peak value of frequency smoothing SNR [default:10]"/>
+      <Parameter name="FRAME_VOICEP_PROB_FACTOR" type="subnet_param" value="FRAME_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(frame) [default:0.7]"/>
+      <Parameter name="GLOBAL_VOICEP_PROB_FACTOR" type="subnet_param" value="GLOBAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(global) [default:0.9]"/>
+      <Parameter name="LOCAL_VOICEP_PROB_FACTOR" type="subnet_param" value="LOCAL_VOICEP_PROB_FACTOR" description="The voice probability smoothing factor(local) [default:0.9]"/>
+      <Parameter name="MIN_VOICE_PAUSE_PROB" type="subnet_param" value="MIN_VOICE_PAUSE_PROB" description="Min value of voice pause probability [default:0.02]"/>
+      <Parameter name="MAX_VOICE_PAUSE_PROB" type="subnet_param" value="MAX_VOICE_PAUSE_PROB" description="Max value of voice pause probability [default:0.98]"/>
+    </Node>
+    <Node name="node_Synthesize_16" type="Synthesize" x="1390" y="1721">
+      <Parameter name="LENGTH" type="int" value="512" description="Size of window length in sample. [default: 512]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The length in sample between a frame and a previous frame. [default: 160]"/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (Hz) [default: 16000]."/>
+      <Parameter name="MIN_FREQUENCY" type="int" value="125" description="Minimum frequency (Hz) [default: 125]"/>
+      <Parameter name="MAX_FREQUENCY" type="int" value="7900" description="Maximum frequency (Hz) [default: 7900]"/>
+      <Parameter name="WINDOW" type="string" value="HAMMING" description="A window function for overlap-add. WINDOW should be CONJ, HAMMING, RECTANGLE, or HANNING. [default: HAMMING]"/>
+      <Parameter name="OUTPUT_GAIN" type="float" value="1" description="Output gain factor. [default: 1.0]"/>
+    </Node>
+    <Node name="node_SaveWavePCM_16" type="SaveWavePCM" x="1420" y="1831">
+      <Parameter name="BASENAME" type="string" value="/home/alex/HARK-projects/res_BF_GICA_HRLE_POSTF_" description="Basename of files. [default: sep_]"/>
+      <Parameter name="ADVANCE" type="int" value="160" description="The shift length beween adjacent frames (in samples)[default: 160]."/>
+      <Parameter name="SAMPLING_RATE" type="int" value="16000" description="Sampling rate (in samples)[default: 16000]."/>
+      <Parameter name="BITS" type="string" value="int16" description="Bit format of samples. int16 , int24 and float32 bits are supported."/>
+    </Node>
+    <Node name="node_ConstantLocalization_2" type="ConstantLocalization" x="340" y="613">
+      <Parameter name="ANGLES" type="object" value="&lt;Vector&lt;float&gt; 45&gt;" description="A vector to specify source locations. Each vector element shows azimuth of a source in degree."/>
+      <Parameter name="ELEVATIONS" type="object" value="&lt;Vector&lt;float&gt; 0&gt;" description="Elevations of source locations. Each element represents an elevation of each source location."/>
+      <Parameter name="POWER" type="object" value="&lt;Vector&lt;float&gt; 1&gt;" description="Power of sources. Each element represents a power of each source."/>
+      <Parameter name="MIN_ID" type="int" value="0" description="Minimum ID of source locations. ID is given from MIN_ID and incremented for the latter sources."/>
+    </Node>
+    <Node name="node_PowerCalcForMatrix_1" type="PowerCalcForMatrix" x="650" y="260">
+      <Parameter name="POWER_TYPE" type="string" value="POW" description="Measure for computing the POW or MAG (i.e. power or magnitude) of the complex spectrum [default: POW]"/>
+    </Node>
+    <Link from="node_AudioStreamFromWave_1" output="AUDIO" to="node_MultiFFT_1" input="INPUT"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_1" input="INPUT_FRAMES"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_1" input="INPUT_SOURCES"/>
+    <Link from="node_BeamForming_1" output="OUTPUT" to="node_Synthesize_1" input="INPUT"/>
+    <Link from="node_Synthesize_1" output="OUTPUT" to="node_SaveWavePCM_1" input="INPUT"/>
+    <Link from="node_BeamForming_3" output="OUTPUT" to="node_Synthesize_3" input="INPUT"/>
+    <Link from="node_Synthesize_3" output="OUTPUT" to="node_SaveWavePCM_3" input="INPUT"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_2" input="INPUT_SOURCES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_2" input="INPUT_FRAMES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_3" input="INPUT_FRAMES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_4" input="INPUT_FRAMES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_5" input="INPUT_FRAMES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_6" input="INPUT_FRAMES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_7" input="INPUT_FRAMES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_BeamForming_8" input="INPUT_FRAMES"/>
+    <Link from="node_BeamForming_8" output="OUTPUT" to="node_Synthesize_8" input="INPUT"/>
+    <Link from="node_Synthesize_8" output="OUTPUT" to="node_SaveWavePCM_8" input="INPUT"/>
+    <Link from="node_BeamForming_7" output="OUTPUT" to="node_Synthesize_7" input="INPUT"/>
+    <Link from="node_Synthesize_7" output="OUTPUT" to="node_SaveWavePCM_7" input="INPUT"/>
+    <Link from="node_BeamForming_6" output="OUTPUT" to="node_Synthesize_6" input="INPUT"/>
+    <Link from="node_Synthesize_6" output="OUTPUT" to="node_SaveWavePCM_6" input="INPUT"/>
+    <Link from="node_BeamForming_5" output="OUTPUT" to="node_Synthesize_5" input="INPUT"/>
+    <Link from="node_Synthesize_5" output="OUTPUT" to="node_SaveWavePCM_5" input="INPUT"/>
+    <Link from="node_BeamForming_4" output="OUTPUT" to="node_Synthesize_4" input="INPUT"/>
+    <Link from="node_Synthesize_4" output="OUTPUT" to="node_SaveWavePCM_4" input="INPUT"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_3" input="INPUT_SOURCES"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_4" input="INPUT_SOURCES"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_5" input="INPUT_SOURCES"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_6" input="INPUT_SOURCES"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_7" input="INPUT_SOURCES"/>
+    <Link from="node_ConstantLocalization_1" output="SOURCES" to="node_BeamForming_8" input="INPUT_SOURCES"/>
+    <Link from="node_BeamForming_1" output="OUTPUT" to="node_HRLE_N_EST_L_1" input="INPUT"/>
+    <Link from="node_BeamForming_1" output="OUTPUT" to="node_HRLE_N_EST_L_1" input="INPUT_SPEC"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_1" input="INIT_NOISE_POWER"/>
+    <Link from="node_HRLE_N_EST_L_1" output="OUTPUT_SPEC" to="node_PostFilter_1" input="INPUT_SPEC"/>
+    <Link from="node_Synthesize_2" output="OUTPUT" to="node_SaveWavePCM_2" input="INPUT"/>
+    <Link from="node_BeamForming_2" output="OUTPUT" to="node_Synthesize_2" input="INPUT"/>
+    <Link from="node_BeamForming_2" output="OUTPUT" to="node_Synthesize_2" input="INPUT"/>
+    <Link from="node_Synthesize_2" output="OUTPUT" to="node_SaveWavePCM_2" input="INPUT"/>
+    <Link from="node_PostFilter_1" output="OUTPUT_SPEC" to="node_Synthesize_9" input="INPUT"/>
+    <Link from="node_Synthesize_9" output="OUTPUT" to="node_SaveWavePCM_9" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_HRLE_N_EST_L_2" output="OUTPUT_SPEC" to="node_PostFilter_2" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_2" output="OUTPUT_SPEC" to="node_Synthesize_10" input="INPUT"/>
+    <Link from="node_Synthesize_10" output="OUTPUT" to="node_SaveWavePCM_10" input="INPUT"/>
+    <Link from="node_BeamForming_8" output="OUTPUT" to="node_HRLE_N_EST_L_8" input="INPUT"/>
+    <Link from="node_BeamForming_8" output="OUTPUT" to="node_HRLE_N_EST_L_8" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_8" output="OUTPUT_SPEC" to="node_PostFilter_8" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_8" output="OUTPUT_SPEC" to="node_Synthesize_16" input="INPUT"/>
+    <Link from="node_Synthesize_16" output="OUTPUT" to="node_SaveWavePCM_16" input="INPUT"/>
+    <Link from="node_BeamForming_7" output="OUTPUT" to="node_HRLE_N_EST_L_7" input="INPUT"/>
+    <Link from="node_BeamForming_7" output="OUTPUT" to="node_HRLE_N_EST_L_7" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_7" output="OUTPUT_SPEC" to="node_PostFilter_7" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_7" output="OUTPUT_SPEC" to="node_Synthesize_15" input="INPUT"/>
+    <Link from="node_Synthesize_15" output="OUTPUT" to="node_SaveWavePCM_15" input="INPUT"/>
+    <Link from="node_BeamForming_6" output="OUTPUT" to="node_HRLE_N_EST_L_6" input="INPUT"/>
+    <Link from="node_BeamForming_6" output="OUTPUT" to="node_HRLE_N_EST_L_6" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_6" output="OUTPUT_SPEC" to="node_PostFilter_6" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_6" output="OUTPUT_SPEC" to="node_Synthesize_14" input="INPUT"/>
+    <Link from="node_Synthesize_14" output="OUTPUT" to="node_SaveWavePCM_14" input="INPUT"/>
+    <Link from="node_BeamForming_5" output="OUTPUT" to="node_HRLE_N_EST_L_5" input="INPUT"/>
+    <Link from="node_BeamForming_5" output="OUTPUT" to="node_HRLE_N_EST_L_5" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_5" output="OUTPUT_SPEC" to="node_PostFilter_5" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_5" output="OUTPUT_SPEC" to="node_Synthesize_13" input="INPUT"/>
+    <Link from="node_Synthesize_13" output="OUTPUT" to="node_SaveWavePCM_13" input="INPUT"/>
+    <Link from="node_BeamForming_4" output="OUTPUT" to="node_HRLE_N_EST_L_4" input="INPUT"/>
+    <Link from="node_BeamForming_4" output="OUTPUT" to="node_HRLE_N_EST_L_4" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_4" output="OUTPUT_SPEC" to="node_PostFilter_4" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_4" output="OUTPUT_SPEC" to="node_Synthesize_12" input="INPUT"/>
+    <Link from="node_Synthesize_12" output="OUTPUT" to="node_SaveWavePCM_12" input="INPUT"/>
+    <Link from="node_BeamForming_3" output="OUTPUT" to="node_HRLE_N_EST_L_3" input="INPUT"/>
+    <Link from="node_BeamForming_3" output="OUTPUT" to="node_HRLE_N_EST_L_3" input="INPUT_SPEC"/>
+    <Link from="node_HRLE_N_EST_L_3" output="OUTPUT_SPEC" to="node_PostFilter_3" input="INPUT_SPEC"/>
+    <Link from="node_PostFilter_3" output="OUTPUT_SPEC" to="node_Synthesize_11" input="INPUT"/>
+    <Link from="node_Synthesize_11" output="OUTPUT" to="node_SaveWavePCM_11" input="INPUT"/>
+    <Link from="node_BeamForming_2" output="OUTPUT" to="node_HRLE_N_EST_L_2" input="INPUT"/>
+    <Link from="node_BeamForming_2" output="OUTPUT" to="node_HRLE_N_EST_L_2" input="INPUT_SPEC"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_2" input="INIT_NOISE_POWER"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_3" input="INIT_NOISE_POWER"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_4" input="INIT_NOISE_POWER"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_5" input="INIT_NOISE_POWER"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_6" input="INIT_NOISE_POWER"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_7" input="INIT_NOISE_POWER"/>
+    <Link from="node_BGNEstimator_1" output="NOISE_POWER" to="node_PostFilter_8" input="INIT_NOISE_POWER"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_1" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_2" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_3" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_4" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_5" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_8" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_6" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_ConstantLocalization_2" output="SOURCES" to="node_BeamForming_7" input="INPUT_NOISE_SOURCES"/>
+    <Link from="node_MultiFFT_1" output="OUTPUT" to="node_PowerCalcForMatrix_1" input="INPUT"/>
+    <Link from="node_PowerCalcForMatrix_1" output="OUTPUT" to="node_BGNEstimator_1" input="INPUT_POWER"/>
+    <NetInput name="INPUT" node="node_AudioStreamFromWave_1" terminal="INPUT" object_type="Stream" description="An audio input stream (IStream)."/>
+    <NetOutput name="OUTPUT" node="node_SaveWavePCM_1" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_1" node="node_SaveWavePCM_2" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_2" node="node_SaveWavePCM_3" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_3" node="node_SaveWavePCM_4" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_4" node="node_SaveWavePCM_5" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_5" node="node_SaveWavePCM_6" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_6" node="node_SaveWavePCM_7" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_7" node="node_SaveWavePCM_8" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetCondition name="CONDITION" node="node_AudioStreamFromWave_1" terminal="NOT_EOF"/>
+    <NetOutput name="OUTPUT_8" node="node_SaveWavePCM_9" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_9" node="node_SaveWavePCM_10" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_10" node="node_SaveWavePCM_11" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_11" node="node_SaveWavePCM_12" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_12" node="node_SaveWavePCM_13" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_13" node="node_SaveWavePCM_14" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_14" node="node_SaveWavePCM_15" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+    <NetOutput name="OUTPUT_15" node="node_SaveWavePCM_16" terminal="OUTPUT" object_type="Map&lt;int,ObjectRef&gt;" description="The same as input."/>
+  </Network>
+  <Network type="subnet" name="HRLE_N_EST_L">
+    <Node name="node_HRLE_1" type="HRLE" x="570" y="220">
+      <Parameter name="LX" type="float" value="0.85" description="Lx value of estimation, e.g. Lx=0 -&gt; Minimum (MCRA), Lx=0.5 -&gt; Median , Lx=1.0 -&gt; Maximum [default:0.85]"/>
+      <Parameter name="TIME_CONSTANT" type="float" value="16000" description="Time constant for exponential decay window in samples [default:16000]"/>
+      <Parameter name="NUM_BIN" type="float" value="1000" description="Number of histogram bins [default:1000]"/>
+      <Parameter name="MIN_LEVEL" type="float" value="-100" description="Minimum level of histogram bin in dB [default:-100]"/>
+      <Parameter name="STEP_LEVEL" type="float" value="0.2" description="Step level of histogram bin (Width of each histogram bin) in dB [default:0.2]"/>
+      <Parameter name="DEBUG" type="bool" value="false" description="Prints the histogram for each 100 iterations."/>
+    </Node>
+    <Node name="node_EstimateLeak_1" type="EstimateLeak" x="540" y="330">
+      <Parameter name="LEAK_FACTOR" type="float" value="0.25" description="Leak factor [default:0.25]"/>
+      <Parameter name="OVER_CANCEL_FACTOR" type="float" value="1" description="Over cancel value [default:1]"/>
+    </Node>
+    <Node name="node_CalcSpecAddPower_1" type="CalcSpecAddPower" x="840" y="270">
+    </Node>
+    <Node name="node_CalcSpecSubGain_1" type="CalcSpecSubGain" x="810" y="450">
+      <Parameter name="ALPHA" type="float" value="1" description="Overestimation factor."/>
+      <Parameter name="BETA" type="float" value="0" description="Spectral floor."/>
+      <Parameter name="SS_METHOD" type="int" value="2" description="1: Magnitude Spectral Subtraction, 2: Power SS"/>
+    </Node>
+    <Node name="node_PowerCalcForMap_1" type="PowerCalcForMap" x="350" y="420">
+      <Parameter name="POWER_TYPE" type="string" value="POW" description="Measure for computing the POW or MAG (i.e. power or magnitude) of the complex spectrum [default: POW]"/>
+    </Node>
+    <Node name="node_SpectralGainFilter_1" type="SpectralGainFilter" x="1128" y="470">
+    </Node>
+    <Link from="node_HRLE_1" output="NOISE_SPEC" to="node_CalcSpecAddPower_1" input="INPUT_POWER_SPEC1"/>
+    <Link from="node_EstimateLeak_1" output="LEAK_POWER_SPEC" to="node_CalcSpecAddPower_1" input="INPUT_POWER_SPEC2"/>
+    <Link from="node_CalcSpecAddPower_1" output="OUTPUT_POWER_SPEC" to="node_CalcSpecSubGain_1" input="NOISE_SPEC"/>
+    <Link from="node_PowerCalcForMap_1" output="OUTPUT" to="node_HRLE_1" input="INPUT_SPEC"/>
+    <Link from="node_PowerCalcForMap_1" output="OUTPUT" to="node_EstimateLeak_1" input="INPUT_POWER_SPEC"/>
+    <Link from="node_PowerCalcForMap_1" output="OUTPUT" to="node_CalcSpecSubGain_1" input="INPUT_POWER_SPEC"/>
+    <Link from="node_CalcSpecSubGain_1" output="VOICE_PROB" to="node_SpectralGainFilter_1" input="VOICE_PROB"/>
+    <Link from="node_CalcSpecSubGain_1" output="GAIN" to="node_SpectralGainFilter_1" input="GAIN"/>
+    <NetInput name="INPUT" node="node_PowerCalcForMap_1" terminal="INPUT" object_type="Map&lt;int,ObjectRef&gt;" description="Complex spectrum. Key: source ID, Value: Data for each source."/>
+    <NetInput name="INPUT_SPEC" node="node_SpectralGainFilter_1" terminal="INPUT_SPEC" object_type="Map&lt;int,ObjectRef&gt;" description="Separated spectrum(Vector&lt;complex&lt;float&gt; &gt;) with a key(source ID)."/>
+    <NetOutput name="OUTPUT_SPEC" node="node_SpectralGainFilter_1" terminal="OUTPUT_SPEC" object_type="Map&lt;int,ObjectRef&gt;" description="Estimated voice spectrum(Vector&lt;complex&lt;float&gt; &gt;) with a key(source ID)."/>
+  </Network>
+</Document>
